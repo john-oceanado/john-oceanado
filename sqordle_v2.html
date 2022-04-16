@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>$(document).ready(function(){$("h3").click(function(){$(inst).hide();});});</script>
+<script>
+var words = ["ABACK", "ABASE", "ABATE", "ABBEY", "ABBOT", "ABHOR", "ABIDE", "ABLED", "ABODE", "ABORT", "ABOUT", "ABOVE", "ABUSE", "ABYSS", "ACORN", "ACRID", "ACTOR", "ACUTE", "ADAGE", "ADAPT", "ADEPT", "ADMIN", "ADMIT", "ADOBE", "ADOPT", "ADORE", "ADORN", "ADULT", "AFFIX", "AFIRE", "AFOOT", "AFOUL", "AFTER", "AGAIN", "AGAPE", "AGATE", "AGENT", "AGILE", "AGING", "AGLOW", "AGONY", "AGREE", "AHEAD", "AIDER", "AISLE", "ALARM", "ALBUM", "ALERT", "ALGAE", "ALIBI", "ALIEN", "ALIGN", "ALIKE", "ALIVE", "ALLAY", "ALLEY", "ALLOT", "ALLOW", "ALLOY", "ALOFT", "ALONE", "ALONG", "ALOOF", "ALOUD", "ALPHA", "ALTAR", "ALTER", "AMASS", "AMAZE", "AMBER", "AMBLE", "AMEND", "AMISS", "AMITY", "AMONG", "AMPLE", "AMPLY", "AMUSE", "ANGEL", "ANGER", "ANGLE", "ANGRY", "ANGST", "ANIME", "ANKLE", "ANNEX", "ANNOY", "ANNUL", "ANODE", "ANTIC", "ANVIL", "AORTA", "APART", "APHID", "APING", "APNEA", "APPLE", "APPLY", "APRON", "APTLY", "ARBOR", "ARDOR", "ARENA", "ARGUE", "ARISE", "ARMOR", "AROMA", "AROSE", "ARRAY", "ARROW", "ARSON", "ARTSY", "ASCOT", "ASHEN", "ASIDE", "ASKEW", "ASSAY", "ASSET", "ATOLL", "ATONE", "ATTIC", "AUDIO", "AUDIT", "AUGUR", "AUNTY", "AVAIL", "AVERT", "AVIAN", "AVOID", "AWAIT", "AWAKE", "AWARD", "AWARE", "AWASH", "AWFUL", "AWOKE", "AXIAL", "AXIOM", "AXION", "AZURE", "BACON", "BADGE", "BADLY", "BAGEL", "BAGGY", "BAKER", "BALER", "BALMY", "BANAL", "BANJO", "BARGE", "BARON", "BASAL", "BASIC", "BASIL", "BASIN", "BASIS", "BASTE", "BATCH", "BATHE", "BATON", "BATTY", "BAWDY", "BAYOU", "BEACH", "BEADY", "BEARD", "BEAST", "BEECH", "BEEFY", "BEFIT", "BEGAN", "BEGAT", "BEGET", "BEGIN", "BEGUN", "BEING", "BELCH", "BELIE", "BELLE", "BELLY", "BELOW", "BENCH", "BERET", "BERRY", "BERTH", "BESET", "BETEL", "BEVEL", "BEZEL", "BIBLE", "BICEP", "BIDDY", "BIGOT", "BILGE", "BILLY", "BINGE", "BINGO", "BIOME", "BIRCH", "BIRTH", "BISON", "BITTY", "BLACK", "BLADE", "BLAME", "BLAND", "BLANK", "BLARE", "BLAST", "BLAZE", "BLEAK", "BLEAT", "BLEED", "BLEEP", "BLEND", "BLESS", "BLIMP", "BLIND", "BLINK", "BLISS", "BLITZ", "BLOAT", "BLOCK", "BLOKE", "BLOND", "BLOOD", "BLOOM", "BLOWN", "BLUER", "BLUFF", "BLUNT", "BLURB", "BLURT", "BLUSH", "BOARD", "BOAST", "BOBBY", "BONEY", "BONGO", "BONUS", "BOOBY", "BOOST", "BOOTH", "BOOTY", "BOOZE", "BOOZY", "BORAX", "BORNE", "BOSOM", "BOSSY", "BOTCH", "BOUGH", "BOULE", "BOUND", "BOWEL", "BOXER", "BRACE", "BRAID", "BRAIN", "BRAKE", "BRAND", "BRASH", "BRASS", "BRAVE", "BRAVO", "BRAWL", "BRAWN", "BREAD", "BREAK", "BREED", "BRIAR", "BRIBE", "BRICK", "BRIDE", "BRIEF", "BRINE", "BRING", "BRINK", "BRINY", "BRISK", "BROAD", "BROIL", "BROKE", "BROOD", "BROOK", "BROOM", "BROTH", "BROWN", "BRUNT", "BRUSH", "BRUTE", "BUDDY", "BUDGE", "BUGGY", "BUGLE", "BUILD", "BUILT", "BULGE", "BULKY", "BULLY", "BUNCH", "BUNNY", "BURLY", "BURNT", "BURST", "BUSED", "BUSHY", "BUTCH", "BUTTE", "BUXOM", "BUYER", "BYLAW", "CABAL", "CABBY", "CABIN", "CABLE", "CACAO", "CACHE", "CACTI", "CADDY", "CADET", "CAGEY", "CAIRN", "CAMEL", "CAMEO", "CANAL", "CANDY", "CANNY", "CANOE", "CANON", "CAPER", "CAPUT", "CARAT", "CARGO", "CAROL", "CARRY", "CARVE", "CASTE", "CATCH", "CATER", "CATTY", "CAULK", "CAUSE", "CAVIL", "CEASE", "CEDAR", "CELLO", "CHAFE", "CHAFF", "CHAIN", "CHAIR", "CHALK", "CHAMP", "CHANT", "CHAOS", "CHARD", "CHARM", "CHART", "CHASE", "CHASM", "CHEAP", "CHEAT", "CHECK", "CHEEK", "CHEER", "CHESS", "CHEST", "CHICK", "CHIDE", "CHIEF", "CHILD", "CHILI", "CHILL", "CHIME", "CHINA", "CHIRP", "CHOCK", "CHOIR", "CHOKE", "CHORD", "CHORE", "CHOSE", "CHUCK", "CHUMP", "CHUNK", "CHURN", "CHUTE", "CIDER", "CINCH", "CIRCA", "CIVIC", "CIVIL", "CLACK", "CLAIM", "CLAMP", "CLANG", "CLANK", "CLASH", "CLASP", "CLASS", "CLEAN", "CLEAR", "CLEAT", "CLEFT", "CLERK", "CLICK", "CLIFF", "CLIMB", "CLING", "CLINK", "CLOAK", "CLOCK", "CLONE", "CLOSE", "CLOTH", "CLOUD", "CLOUT", "CLOVE", "CLOWN", "CLUCK", "CLUED", "CLUMP", "CLUNG", "COACH", "COAST", "COBRA", "COCOA", "COLON", "COLOR", "COMET", "COMFY", "COMIC", "COMMA", "CONCH", "CONDO", "CONIC", "COPSE", "CORAL", "CORER", "CORNY", "COUCH", "COUGH", "COULD", "COUNT", "COUPE", "COURT", "COVEN", "COVER", "COVET", "COVEY", "COWER", "COYLY", "CRACK", "CRAFT", "CRAMP", "CRANE", "CRANK", "CRASH", "CRASS", "CRATE", "CRAVE", "CRAWL", "CRAZE", "CRAZY", "CREAK", "CREAM", "CREDO", "CREED", "CREEK", "CREEP", "CREME", "CREPE", "CREPT", "CRESS", "CREST", "CRICK", "CRIED", "CRIER", "CRIME", "CRIMP", "CRISP", "CROAK", "CROCK", "CRONE", "CRONY", "CROOK", "CROSS", "CROUP", "CROWD", "CROWN", "CRUDE", "CRUEL", "CRUMB", "CRUMP", "CRUSH", "CRUST", "CRYPT", "CUBIC", "CUMIN", "CURIO", "CURLY", "CURRY", "CURSE", "CURVE", "CURVY", "CUTIE", "CYBER", "CYCLE", "CYNIC", "DADDY", "DAILY", "DAIRY", "DAISY", "DALLY", "DANCE", "DANDY", "DATUM", "DAUNT", "DEALT", "DEATH", "DEBAR", "DEBIT", "DEBUG", "DEBUT", "DECAL", "DECAY", "DECOR", "DECOY", "DECRY", "DEFER", "DEIGN", "DEITY", "DELAY", "DELTA", "DELVE", "DEMON", "DEMUR", "DENIM", "DENSE", "DEPOT", "DEPTH", "DERBY", "DETER", "DETOX", "DEUCE", "DEVIL", "DIARY", "DICEY", "DIGIT", "DILLY", "DIMLY", "DINER", "DINGO", "DINGY", "DIODE", "DIRGE", "DIRTY", "DISCO", "DITCH", "DITTO", "DITTY", "DIVER", "DIZZY", "DODGE", "DODGY", "DOGMA", "DOING", "DOLLY", "DONOR", "DONUT", "DOPEY", "DOUBT", "DOUGH", "DOWDY", "DOWEL", "DOWNY", "DOWRY", "DOZEN", "DRAFT", "DRAIN", "DRAKE", "DRAMA", "DRANK", "DRAPE", "DRAWL", "DRAWN", "DREAD", "DREAM", "DRESS", "DRIED", "DRIER", "DRIFT", "DRILL", "DRINK", "DRIVE", "DROIT", "DROLL", "DRONE", "DROOL", "DROOP", "DROSS", "DROVE", "DROWN", "DRUID", "DRUNK", "DRYER", "DRYLY", "DUCHY", "DULLY", "DUMMY", "DUMPY", "DUNCE", "DUSKY", "DUSTY", "DUTCH", "DUVET", "DWARF", "DWELL", "DWELT", "DYING", "EAGER", "EAGLE", "EARLY", "EARTH", "EASEL", "EATEN", "EATER", "EBONY", "ECLAT", "EDICT", "EDIFY", "EERIE", "EGRET", "EIGHT", "EJECT", "EKING", "ELATE", "ELBOW", "ELDER", "ELECT", "ELEGY", "ELFIN", "ELIDE", "ELITE", "ELOPE", "ELUDE", "EMAIL", "EMBED", "EMBER", "EMCEE", "EMPTY", "ENACT", "ENDOW", "ENEMA", "ENEMY", "ENJOY", "ENNUI", "ENSUE", "ENTER", "ENTRY", "ENVOY", "EPOCH", "EPOXY", "EQUAL", "EQUIP", "ERASE", "ERECT", "ERODE", "ERROR", "ERUPT", "ESSAY", "ESTER", "ETHER", "ETHIC", "ETHOS", "ETUDE", "EVADE", "EVENT", "EVERY", "EVICT", "EVOKE", "EXACT", "EXALT", "EXCEL", "EXERT", "EXILE", "EXIST", "EXPEL", "EXTOL", "EXTRA", "EXULT", "EYING", "FABLE", "FACET", "FAINT", "FAIRY", "FAITH", "FANCY", "FANNY", "FARCE", "FATAL", "FATTY", "FAULT", "FAUNA", "FAVOR", "FEAST", "FECAL", "FEIGN", "FELLA", "FELON", "FEMME", "FEMUR", "FENCE", "FERAL", "FERRY", "FETAL", "FETCH", "FETID", "FETUS", "FEVER", "FEWER", "FIBER", "FICUS", "FIELD", "FIEND", "FIERY", "FIFTH", "FIFTY", "FIGHT", "FILER", "FILET", "FILLY", "FILMY", "FILTH", "FINAL", "FINCH", "FINER", "FIRST", "FISHY", "FIXER", "FIZZY", "FJORD", "FLACK", "FLAIL", "FLAIR", "FLAKE", "FLAKY", "FLAME", "FLANK", "FLARE", "FLASH", "FLASK", "FLECK", "FLEET", "FLESH", "FLICK", "FLIER", "FLING", "FLINT", "FLIRT", "FLOAT", "FLOCK", "FLOOD", "FLOOR", "FLORA", "FLOSS", "FLOUR", "FLOUT", "FLOWN", "FLUFF", "FLUID", "FLUKE", "FLUME", "FLUNG", "FLUNK", "FLUSH", "FLUTE", "FLYER", "FOAMY", "FOCAL", "FOCUS", "FOGGY", "FOIST", "FOLIO", "FOLLY", "FORAY", "FORCE", "FORGE", "FORGO", "FORTE", "FORTH", "FORTY", "FORUM", "FOUND", "FOYER", "FRAIL", "FRAME", "FRANK", "FRAUD", "FREAK", "FREED", "FREER", "FRESH", "FRIAR", "FRIED", "FRILL", "FRISK", "FRITZ", "FROCK", "FROND", "FRONT", "FROST", "FROTH", "FROWN", "FROZE", "FRUIT", "FUDGE", "FUGUE", "FULLY", "FUNGI", "FUNKY", "FUNNY", "FUROR", "FURRY", "FUSSY", "FUZZY", "GAFFE", "GAILY", "GAMER", "GAMMA", "GAMUT", "GASSY", "GAUDY", "GAUGE", "GAUNT", "GAUZE", "GAVEL", "GAWKY", "GAYER", "GAYLY", "GAZER", "GECKO", "GEEKY", "GEESE", "GENIE", "GENRE", "GHOST", "GHOUL", "GIANT", "GIDDY", "GIPSY", "GIRLY", "GIRTH", "GIVEN", "GIVER", "GLADE", "GLAND", "GLARE", "GLASS", "GLAZE", "GLEAM", "GLEAN", "GLIDE", "GLINT", "GLOAT", "GLOBE", "GLOOM", "GLORY", "GLOSS", "GLOVE", "GLYPH", "GNASH", "GNOME", "GODLY", "GOING", "GOLEM", "GOLLY", "GONAD", "GONER", "GOODY", "GOOEY", "GOOFY", "GOOSE", "GORGE", "GOUGE", "GOURD", "GRACE", "GRADE", "GRAFT", "GRAIL", "GRAIN", "GRAND", "GRANT", "GRAPE", "GRAPH", "GRASP", "GRASS", "GRATE", "GRAVE", "GRAVY", "GRAZE", "GREAT", "GREED", "GREEN", "GREET", "GRIEF", "GRILL", "GRIME", "GRIMY", "GRIND", "GRIPE", "GROAN", "GROIN", "GROOM", "GROPE", "GROSS", "GROUP", "GROUT", "GROVE", "GROWL", "GROWN", "GRUEL", "GRUFF", "GRUNT", "GUARD", "GUAVA", "GUESS", "GUEST", "GUIDE", "GUILD", "GUILE", "GUILT", "GUISE", "GULCH", "GULLY", "GUMBO", "GUMMY", "GUPPY", "GUSTO", "GUSTY", "GYPSY", "HABIT", "HAIRY", "HALVE", "HANDY", "HAPPY", "HARDY", "HAREM", "HARPY", "HARRY", "HARSH", "HASTE", "HASTY", "HATCH", "HATER", "HAUNT", "HAUTE", "HAVEN", "HAVOC", "HAZEL", "HEADY", "HEARD", "HEART", "HEATH", "HEAVE", "HEAVY", "HEDGE", "HEFTY", "HEIST", "HELIX", "HELLO", "HENCE", "HERON", "HILLY", "HINGE", "HIPPO", "HIPPY", "HITCH", "HOARD", "HOBBY", "HOIST", "HOLLY", "HOMER", "HONEY", "HONOR", "HORDE", "HORNY", "HORSE", "HOTEL", "HOTLY", "HOUND", "HOUSE", "HOVEL", "HOVER", "HOWDY", "HUMAN", "HUMID", "HUMOR", "HUMPH", "HUMUS", "HUNCH", "HUNKY", "HURRY", "HUSKY", "HUSSY", "HUTCH", "HYDRO", "HYENA", "HYMEN", "HYPER", "ICILY", "ICING", "IDEAL", "IDIOM", "IDIOT", "IDLER", "IDYLL", "IGLOO", "ILIAC", "IMAGE", "IMBUE", "IMPEL", "IMPLY", "INANE", "INBOX", "INCUR", "INDEX", "INEPT", "INERT", "INFER", "INGOT", "INLAY", "INLET", "INNER", "INPUT", "INTER", "INTRO", "IONIC", "IRATE", "IRONY", "ISLET", "ISSUE", "ITCHY", "IVORY", "JAUNT", "JAZZY", "JELLY", "JERKY", "JETTY", "JEWEL", "JIFFY", "JOINT", "JOIST", "JOKER", "JOLLY", "JOUST", "JUDGE", "JUICE", "JUICY", "JUMBO", "JUMPY", "JUNTA", "JUNTO", "JUROR", "KAPPA", "KARMA", "KAYAK", "KEBAB", "KHAKI", "KINKY", "KIOSK", "KITTY", "KNACK", "KNAVE", "KNEAD", "KNEED", "KNEEL", "KNELT", "KNIFE", "KNOCK", "KNOLL", "KNOWN", "KOALA", "KRILL", "LABEL", "LABOR", "LADEN", "LADLE", "LAGER", "LANCE", "LANKY", "LAPEL", "LAPSE", "LARGE", "LARVA", "LASSO", "LATCH", "LATER", "LATHE", "LATTE", "LAUGH", "LAYER", "LEACH", "LEAFY", "LEAKY", "LEANT", "LEAPT", "LEARN", "LEASE", "LEASH", "LEAST", "LEAVE", "LEDGE", "LEECH", "LEERY", "LEFTY", "LEGAL", "LEGGY", "LEMON", "LEMUR", "LEPER", "LEVEL", "LEVER", "LIBEL", "LIEGE", "LIGHT", "LIKEN", "LILAC", "LIMBO", "LIMIT", "LINEN", "LINER", "LINGO", "LIPID", "LITHE", "LIVER", "LIVID", "LLAMA", "LOAMY", "LOATH", "LOBBY", "LOCAL", "LOCUS", "LODGE", "LOFTY", "LOGIC", "LOGIN", "LOOPY", "LOOSE", "LORRY", "LOSER", "LOUSE", "LOUSY", "LOVER", "LOWER", "LOWLY", "LOYAL", "LUCID", "LUCKY", "LUMEN", "LUMPY", "LUNAR", "LUNCH", "LUNGE", "LUPUS", "LURCH", "LURID", "LUSTY", "LYING", "LYMPH", "LYRIC", "MACAW", "MACHO", "MACRO", "MADAM", "MADLY", "MAFIA", "MAGIC", "MAGMA", "MAIZE", "MAJOR", "MAKER", "MAMBO", "MAMMA", "MAMMY", "MANGA", "MANGE", "MANGO", "MANGY", "MANIA", "MANIC", "MANLY", "MANOR", "MAPLE", "MARCH", "MARRY", "MARSH", "MASON", "MASSE", "MATCH", "MATEY", "MAUVE", "MAXIM", "MAYBE", "MAYOR", "MEALY", "MEANT", "MEATY", "MECCA", "MEDAL", "MEDIA", "MEDIC", "MELEE", "MELON", "MERCY", "MERGE", "MERIT", "MERRY", "METAL", "METER", "METRO", "MICRO", "MIDGE", "MIDST", "MIGHT", "MILKY", "MIMIC", "MINCE", "MINER", "MINIM", "MINOR", "MINTY", "MINUS", "MIRTH", "MISER", "MISSY", "MOCHA", "MODAL", "MODEL", "MODEM", "MOGUL", "MOIST", "MOLAR", "MOLDY", "MONEY", "MONTH", "MOODY", "MOOSE", "MORAL", "MORON", "MORPH", "MOSSY", "MOTEL", "MOTIF", "MOTOR", "MOTTO", "MOULT", "MOUND", "MOUNT", "MOURN", "MOUSE", "MOUTH", "MOVER", "MOVIE", "MOWER", "MUCKY", "MUCUS", "MUDDY", "MULCH", "MUMMY", "MUNCH", "MURAL", "MURKY", "MUSHY", "MUSIC", "MUSKY", "MUSTY", "MYRRH", "NADIR", "NAIVE", "NANNY", "NASAL", "NASTY", "NATAL", "NAVAL", "NAVEL", "NEEDY", "NEIGH", "NERDY", "NERVE", "NEVER", "NEWER", "NEWLY", "NICER", "NICHE", "NIECE", "NIGHT", "NINJA", "NINNY", "NINTH", "NOBLE", "NOBLY", "NOISE", "NOISY", "NOMAD", "NOOSE", "NORTH", "NOSEY", "NOTCH", "NOVEL", "NUDGE", "NURSE", "NUTTY", "NYLON", "NYMPH", "OAKEN", "OBESE", "OCCUR", "OCEAN", "OCTAL", "OCTET", "ODDER", "ODDLY", "OFFAL", "OFFER", "OFTEN", "OLDEN", "OLDER", "OLIVE", "OMBRE", "OMEGA", "ONION", "ONSET", "OPERA", "OPINE", "OPIUM", "OPTIC", "ORBIT", "ORDER", "ORGAN", "OTHER", "OTTER", "OUGHT", "OUNCE", "OUTDO", "OUTER", "OUTGO", "OVARY", "OVATE", "OVERT", "OVINE", "OVOID", "OWING", "OWNER", "OXIDE", "OZONE", "PADDY", "PAGAN", "PAINT", "PALER", "PALSY", "PANEL", "PANIC", "PANSY", "PAPAL", "PAPER", "PARER", "PARKA", "PARRY", "PARSE", "PARTY", "PASTA", "PASTE", "PASTY", "PATCH", "PATIO", "PATSY", "PATTY", "PAUSE", "PAYEE", "PAYER", "PEACE", "PEACH", "PEARL", "PECAN", "PEDAL", "PENAL", "PENCE", "PENNE", "PENNY", "PERCH", "PERIL", "PERKY", "PESKY", "PESTO", "PETAL", "PETTY", "PHASE", "PHONE", "PHONY", "PHOTO", "PIANO", "PICKY", "PIECE", "PIETY", "PIGGY", "PILOT", "PINCH", "PINEY", "PINKY", "PINTO", "PIPER", "PIQUE", "PITCH", "PITHY", "PIVOT", "PIXEL", "PIXIE", "PIZZA", "PLACE", "PLAID", "PLAIN", "PLAIT", "PLANE", "PLANK", "PLANT", "PLATE", "PLAZA", "PLEAD", "PLEAT", "PLIED", "PLIER", "PLUCK", "PLUMB", "PLUME", "PLUMP", "PLUNK", "PLUSH", "POESY", "POINT", "POISE", "POKER", "POLAR", "POLKA", "POLYP", "POOCH", "POPPY", "PORCH", "POSER", "POSIT", "POSSE", "POUCH", "POUND", "POUTY", "POWER", "PRANK", "PRAWN", "PREEN", "PRESS", "PRICE", "PRICK", "PRIDE", "PRIED", "PRIME", "PRIMO", "stroke", "PRIOR", "PRISM", "PRIVY", "PRIZE", "PROBE", "PRONE", "PRONG", "PROOF", "PROSE", "PROUD", "PROVE", "PROWL", "PROXY", "PRUDE", "PRUNE", "PSALM", "PUBIC", "PUDGY", "PUFFY", "PULPY", "PULSE", "PUNCH", "PUPIL", "PUPPY", "PUREE", "PURER", "PURGE", "PURSE", "PUSHY", "PUTTY", "PYGMY", "QUACK", "QUAIL", "QUAKE", "QUALM", "QUARK", "QUART", "QUASH", "QUASI", "QUEEN", "QUEER", "QUELL", "QUERY", "QUEST", "QUEUE", "QUICK", "QUIET", "QUILL", "QUILT", "QUIRK", "QUITE", "QUOTA", "QUOTE", "QUOTH", "RABBI", "RABID", "RACER", "RADAR", "RADII", "RADIO", "RAINY", "RAISE", "RAJAH", "RALLY", "RALPH", "RAMEN", "RANCH", "RANDY", "RANGE", "RAPID", "RARER", "RASPY", "RATIO", "RATTY", "RAVEN", "RAYON", "RAZOR", "REACH", "REACT", "READY", "REALM", "REARM", "REBAR", "REBEL", "REBUS", "REBUT", "RECAP", "RECUR", "RECUT", "REEDY", "REFER", "REFIT", "REGAL", "REHAB", "REIGN", "RELAX", "RELAY", "RELIC", "REMIT", "RENAL", "RENEW", "REPAY", "REPEL", "REPLY", "RERUN", "RESET", "RESIN", "RETCH", "RETRO", "RETRY", "REUSE", "REVEL", "REVUE", "RHINO", "RHYME", "RIDER", "RIDGE", "RIFLE", "RIGHT", "RIGID", "RIGOR", "RINSE", "RIPEN", "RIPER", "RISEN", "RISER", "RISKY", "RIVAL", "RIVER", "RIVET", "ROACH", "ROAST", "ROBIN", "ROBOT", "ROCKY", "RODEO", "ROGER", "ROGUE", "ROOMY", "ROOST", "ROTOR", "ROUGE", "ROUGH", "ROUND", "ROUSE", "ROUTE", "ROVER", "ROWDY", "ROWER", "ROYAL", "RUDDY", "RUDER", "RUGBY", "RULER", "RUMBA", "RUMOR", "RUPEE", "RURAL", "RUSTY", "SADLY", "SAFER", "SAINT", "SALAD", "SALLY", "SALON", "SALSA", "SALTY", "SALVE", "SALVO", "SANDY", "SANER", "SAPPY", "SASSY", "SATIN", "SATYR", "SAUCE", "SAUCY", "SAUNA", "SAUTE", "SAVOR", "SAVOY", "SAVVY", "SCALD", "SCALE", "SCALP", "SCALY", "SCAMP", "SCANT", "SCARE", "SCARF", "SCARY", "SCENE", "SCENT", "SCION", "SCOFF", "SCOLD", "SCONE", "SCOOP", "SCOPE", "SCORE", "SCORN", "SCOUR", "SCOUT", "SCOWL", "SCRAM", "SCRAP", "SCREE", "SCREW", "SCRUB", "SCRUM", "SCUBA", "SEDAN", "SEEDY", "SEGUE", "SEIZE", "SEMEN", "SENSE", "SEPIA", "SERIF", "SERUM", "SERVE", "SETUP", "SEVEN", "SEVER", "SEWER", "SHACK", "SHADE", "SHADY", "SHAFT", "SHAKE", "SHAKY", "SHALE", "SHALL", "SHALT", "SHAME", "SHANK", "SHAPE", "SHARD", "SHARE", "SHARK", "SHARP", "SHAVE,", "SHAWL", "SHEAR", "SHEEN", "SHEEP", "SHEER", "SHEET", "SHEIK", "SHELF", "SHELL", "SHIED", "SHIFT", "SHINE", "SHINY", "SHIRE", "SHIRK", "SHIRT", "SHOAL", "SHOCK", "SHONE", "SHOOK", "SHOOT", "SHORE", "SHORN", "SHORT", "SHOUT", "SHOVE", "SHOWN", "SHOWY", "SHREW", "SHRUB", "SHRUG", "SHUCK", "SHUNT", "SHUSH", "SHYLY", "SIEGE", "SIEVE", "SIGHT", "SIGMA", "SILKY", "SILLY", "SINCE", "SINEW", "SINGE", "SIREN", "SISSY", "SIXTH", "SIXTY", "SKATE", "SKIER", "SKIFF", "SKILL", "SKIMP", "SKIRT", "SKULK", "SKULL", "SKUNK", "SLACK", "SLAIN", "SLANG", "SLANT", "SLASH", "SLATE", "SLAVE", "SLEEK", "SLEEP", "SLEET", "SLEPT", "SLICE", "SLICK", "SLIDE", "SLIME", "SLIMY", "SLING", "SLINK", "SLOOP", "SLOPE", "SLOSH", "SLOTH", "SLUMP", "SLUNG", "SLUNK", "SLURP", "SLUSH", "SLYLY", "SMACK", "SMALL", "SMART", "SMASH", "SMEAR", "SMELL", "SMELT", "SMILE", "SMIRK", "SMITE", "SMITH", "SMOCK", "SMOKE", "SMOKY", "SMOTE", "SNACK", "SNAIL", "SNAKE", "SNAKY", "SNARE", "SNARL", "SNEAK", "SNEER", "SNIDE", "SNIFF", "SNIPE", "SNOOP", "SNORE", "SNORT", "SNOUT", "SNOWY", "SNUCK", "SNUFF", "SOAPY", "SOBER", "SOGGY", "SOLAR", "SOLID", "SOLVE", "SONAR", "SONIC", "SOOTH", "SOOTY", "SORRY", "SOUND", "SOUTH", "SOWER", "SPACE", "SPADE", "SPANK", "SPARE", "SPARK", "SPASM", "SPAWN", "SPEAK", "SPEAR", "SPECK", "SPEED", "SPELL", "SPELT", "SPEND", "SPENT", "SPERM", "SPICE", "SPICY", "SPIED", "SPIEL", "SPIKE", "SPIKY", "SPILL", "SPILT", "SPINE", "SPINY", "SPIRE", "SPITE", "SPLAT", "SPLIT", "SPOIL", "SPOKE", "SPOOF", "SPOOK", "SPOOL", "SPOON", "SPORE", "SPORT", "SPOUT", "SPRAY", "SPREE", "SPRIG", "SPUNK", "SPURN", "SPURT", "SQUAD", "SQUAT", "SQUIB", "STACK", "STAFF", "STAGE", "STAID", "STAIN", "STAIR", "STAKE", "STALE", "STALK", "STALL", "STAMP", "STAND", "STANK", "STARE", "STARK", "START", "STASH", "STATE", "STAVE", "STEAD", "STEAK", "STEAL", "STEAM", "STEED", "STEEL", "STEEP", "STEER", "STEIN", "STERN", "STICK", "STIFF", "STILL", "STILT", "STING", "STINK", "STINT", "STOCK", "STOIC", "STOKE", "STOLE", "STOMP", "STONE", "STONY", "STOOD", "STOOL", "STOOP", "STORE", "STORK", "STORM", "STORY", "STOUT", "STOVE", "STRAP", "STRAW", "STRAY", "STRIP", "STRUT", "STUCK", "STUDY", "STUFF", "STUMP", "STUNG", "STUNK", "STUNT", "STYLE", "SUAVE", "SUGAR", "SUING", "SUITE", "SULKY", "SULLY", "SUMAC", "SUNNY", "SUPER", "SURER", "SURGE", "SURLY", "SUSHI", "SWAMI", "SWAMP", "SWARM", "SWASH", "SWATH", "SWEAR", "SWEAT", "SWEEP", "SWEET", "SWELL", "SWEPT", "SWIFT", "SWILL", "SWINE", "SWING", "SWIRL", "SWISH", "SWOON", "SWOOP", "SWORD", "SWORE", "SWORN", "SWUNG", "SYNOD", "SYRUP", "TABBY", "TABLE", "TABOO", "TACIT", "TACKY", "TAFFY", "TAINT", "TAKEN", "TAKER", "TALLY", "TALON", "TAMER", "TANGO", "TANGY", "TAPER", "TAPIR", "TARDY", "TAROT", "TASTE", "TASTY", "TATTY", "TAUNT", "TAWNY", "TEACH", "TEARY", "TEASE", "TEDDY", "TEETH", "TEMPO", "TENET", "TENOR", "TENSE", "TENTH", "TEPEE", "TEPID", "TERRA", "TERSE", "TESTY", "THANK", "THEFT", "THEIR", "THEME", "THERE", "THESE", "THETA", "THICK", "THIEF", "THIGH", "THING", "THINK", "THIRD", "THONG", "THORN", "THOSE", "THREE", "THREW", "THROB", "THROW", "THRUM", "THUMB", "THUMP", "THYME", "TIARA", "TIBIA", "TIDAL", "TIGER", "TIGHT", "TILDE", "TIMER", "TIMID", "TIPSY", "TITAN", "TITHE", "TITLE", "TOAST", "TODAY", "TODDY", "TOKEN", "TONAL", "TONGA", "TONIC", "TOOTH", "TOPAZ", "TOPIC", "TORCH", "TORSO", "TORUS", "TOTAL", "TOTEM", "TOUCH", "TOUGH", "TOWEL", "TOWER", "TOXIC", "TOXIN", "TRACE", "TRACK", "TRACT", "TRADE", "TRAIL", "TRAIN", "TRAIT", "TRAMP", "TRASH", "TRAWL", "TREAD", "TREAT", "TREND", "TRIAD", "TRIAL", "TRIBE", "TRICE", "TRICK", "TRIED", "TRIPE", "TRITE", "TROLL", "TROOP", "TROPE", "TROUT", "TROVE", "TRUCE", "TRUCK", "TRUER", "TRULY", "TRUMP", "TRUNK", "TRUSS", "TRUST", "TRUTH", "TRYST", "TUBAL", "TUBER", "TULIP", "TULLE", "TUMOR", "TUNIC", "TURBO", "TUTOR", "TWANG", "TWEAK", "TWEED", "TWEET", "TWICE", "TWINE", "TWIRL", "TWIST", "TWIXT", "TYING", "UDDER", "ULCER", "ULTRA", "UMBRA", "UNCLE", "UNCUT", "UNDER", "UNDID", "UNDUE", "UNFED", "UNFIT", "UNIFY", "UNION", "UNITE", "UNITY", "UNLIT", "UNMET", "UNSET", "UNTIE", "UNTIL", "UNWED", "UNZIP", "UPPER", "UPSET", "URBAN", "URINE", "USAGE", "USHER", "USING", "USUAL", "USURP", "UTILE", "UTTER", "VAGUE", "VALET", "VALID", "VALOR", "VALUE", "VALVE", "VAPID", "VAPOR", "VAULT", "VAUNT", "VEGAN", "VENOM", "VENUE", "VERGE", "VERSE", "VERSO", "VERVE", "VICAR", "VIDEO", "VIGIL", "VIGOR", "VILLA", "VINYL", "VIOLA", "VIPER", "VIRAL", "VIRUS", "VISIT", "VISOR", "VISTA", "VITAL", "VIVID", "VIXEN", "VOCAL", "VODKA", "VOGUE", "VOICE", "VOILA", "VOMIT", "VOTER", "VOUCH", "VOWEL", "VYING", "WACKY", "WAFER", "WAGER", "WAGON", "WAIST", "WAIVE", "WALTZ", "WARTY", "WASTE", "WATCH", "WATER", "WAVER", "WAXEN", "WEARY", "WEAVE", "WEDGE", "WEEDY", "WEIGH", "WEIRD", "WELCH", "WELSH", "WHACK", "WHALE", "WHARF", "WHEAT", "WHEEL", "WHELP", "WHERE", "WHICH", "WHIFF", "WHILE", "WHINE", "WHINY", "WHIRL", "WHISK", "WHITE", "WHOLE", "WHOOP", "WHOSE", "WIDEN", "WIDER", "WIDOW", "WIDTH", "WIELD", "WIGHT", "WILLY", "WIMPY", "WINCE", "WINCH", "WINDY", "WISER", "WISPY", "WITCH", "WITTY", "WOKEN", "WOMAN", "WOMEN", "WOODY", "WOOER", "WOOLY", "WOOZY", "WORDY", "WORLD", "WORRY", "WORSE", "WORST", "WORTH", "WOULD", "WOUND", "WOVEN", "WRACK", "WRATH", "WREAK", "WRECK", "WREST", "WRING", "WRIST", "WRITE", "WRONG", "WROTE", "WRUNG", "WRYLY", "YACHT", "YEARN", "YEAST", "YIELD", "YOUNG", "YOUTH", "ZEBRA", "ZESTY", "ZONAL"];
+
+function func_b0() {
+	if (box_ck<0) {box_ck = 0; bgc[0] = 'yellow';}
+	else {if (box_ck==0) {box_ck = -1;bgc[0] = 'white';}
+	else {let box_tmp = box[box_ck]; box[box_ck] = box[0]; box[0] = box_tmp; bgc[box_ck] = 'white';box_ck = -1;}}
+	redraw();
+}
+
+function func_b1() {
+	if (box_ck<0) {box_ck = 1; bgc[1] = 'yellow';}
+	else {if (box_ck==1) {box_ck = -1;bgc[1] = 'white';}
+	else {let box_tmp = box[box_ck]; box[box_ck] = box[1]; box[1] = box_tmp; bgc[box_ck] = 'white';box_ck = -1;}}
+	redraw();
+}
+
+function func_b2() {
+	if (box_ck<0) {box_ck = 2; bgc[2] = 'yellow';}
+	else {if (box_ck==2) {box_ck = -1;bgc[2] = 'white';}
+	else {let box_tmp = box[box_ck]; box[box_ck] = box[2]; box[2] = box_tmp; bgc[box_ck] = 'white';box_ck = -1;}}
+	redraw();
+}
+
+function func_b3() {
+	if (box_ck<0) {box_ck = 3; bgc[3] = 'yellow';}
+	else {if (box_ck==3) {box_ck = -1;bgc[3] = 'white';}
+	else {let box_tmp = box[box_ck]; box[box_ck] = box[3]; box[3] = box_tmp; bgc[box_ck] = 'white';box_ck = -1;}}
+	redraw();
+}
+
+function func_b4() {
+	if (box_ck<0) {box_ck = 4; bgc[4] = 'yellow';}
+	else {if (box_ck==4) {box_ck = -1;bgc[4] = 'white';}
+	else {let box_tmp = box[box_ck]; box[box_ck] = box[4]; box[4] = box_tmp; bgc[box_ck] = 'white';box_ck = -1;}}
+	redraw();
+}
+
+function func_b5() {
+	if (box_ck<0) {box_ck = 5; bgc[5] = 'yellow';}
+	else {if (box_ck==5) {box_ck = -1;bgc[5] = 'white';}
+	else {let box_tmp = box[box_ck]; box[box_ck] = box[5]; box[5] = box_tmp; bgc[box_ck] = 'white';box_ck = -1;}}
+	redraw();
+}
+
+function func_b6() {
+	if (box_ck<0) {box_ck = 6; bgc[6] = 'yellow';}
+	else {if (box_ck==6) {box_ck = -1;bgc[6] = 'white';}
+	else {let box_tmp = box[box_ck]; box[box_ck] = box[6]; box[6] = box_tmp; bgc[box_ck] = 'white';box_ck = -1;}}
+	redraw();
+}
+
+function func_b7() {
+	if (box_ck<0) {box_ck = 7; bgc[7] = 'yellow';}
+	else {if (box_ck==7) {box_ck = -1;bgc[7] = 'white';}
+	else {let box_tmp = box[box_ck]; box[box_ck] = box[7]; box[7] = box_tmp; bgc[box_ck] = 'white';box_ck = -1;}}
+	redraw();
+}
+
+function func_b8() {
+	if (box_ck<0) {box_ck = 8; bgc[8] = 'yellow';}
+	else {if (box_ck==8) {box_ck = -1;bgc[8] = 'white';}
+	else {let box_tmp = box[box_ck]; box[box_ck] = box[8]; box[8] = box_tmp; bgc[box_ck] = 'white';box_ck = -1;}}
+	redraw();
+}
+
+function func_b9() {
+	if (box_ck<0) {box_ck = 9; bgc[9] = 'yellow';}
+	else {if (box_ck==9) {box_ck = -1;bgc[9] = 'white';}
+	else {let box_tmp = box[box_ck]; box[box_ck] = box[9]; box[9] = box_tmp; bgc[box_ck] = 'white';box_ck = -1;}}
+	redraw();
+}
+
+function func_b10() {
+	if (box_ck<0) {box_ck = 10; bgc[10] = 'yellow';}
+	else {if (box_ck==10) {box_ck = -1;bgc[10] = 'white';}
+	else {let box_tmp = box[box_ck]; box[box_ck] = box[10]; box[10] = box_tmp; bgc[box_ck] = 'white';box_ck = -1;}}
+	redraw();
+}
+
+function func_b11() {
+	if (box_ck<0) {box_ck = 11; bgc[11] = 'yellow';}
+	else {if (box_ck==11) {box_ck = -1;bgc[11] = 'white';}
+	else {let box_tmp = box[box_ck]; box[box_ck] = box[11]; box[11] = box_tmp; bgc[box_ck] = 'white';box_ck = -1;}}
+	redraw();
+}
+
+function func_b12() {
+	if (box_ck<0) {box_ck = 12; bgc[12] = 'yellow';}
+	else {if (box_ck==12) {box_ck = -1;bgc[12] = 'white';}
+	else {let box_tmp = box[box_ck]; box[box_ck] = box[12]; box[12] = box_tmp; bgc[box_ck] = 'white';box_ck = -1;}}
+	redraw();
+}
+
+function func_b13() {
+	if (box_ck<0) {box_ck = 13; bgc[13] = 'yellow';}
+	else {if (box_ck==13) {box_ck = -1;bgc[13] = 'white';}
+	else {let box_tmp = box[box_ck]; box[box_ck] = box[13]; box[13] = box_tmp; bgc[box_ck] = 'white'; box_ck = -1;}}
+	redraw();
+}
+
+function func_b14() {
+	if (box_ck<0) {box_ck = 14; bgc[14] = 'yellow';}
+	else {if (box_ck==14) {box_ck = -1; bgc[14] = 'white';}
+	else {let box_tmp = box[box_ck]; box[box_ck] = box[14]; box[14] = box_tmp; bgc[box_ck] = 'white'; box_ck = -1;}}
+	redraw();
+}
+
+function getSqordle(word) {
+	var sqordles = ["---------------", "---------------"];
+	var word_list_1 = ["-----"], word_list_2 = ["-----"], word_list_3 = ["-----"], word_list_4 = ["-----"];
+	var lwl_1 = 0, lwl_2 = 0, lwl_3 = 0, lwl_4 = 0;
+	var key1 = ["-"], key2 = ["-"], key3 = ["-"];
+	var i = 0, j = 0, k = 0, m = 0, n = 0;
+	var word1 = word;
+	var word2 = ["-"], word3 = ["-"], word4 = ["-"], word5 = ["-"];
+	key1 = word1[1];
+	word_list_1 = words.filter(word => word.charAt(0) == key1);
+	lwl_1 = word_list_1.length;
+	for (let i = 0; i < lwl_1; i++) {
+		word2 = word_list_1[i];
+		key2 = word1[2] + word2[2];
+		word_list_2 = words.filter(word => word.substring(0,2) == key2);
+		lwl_2 = word_list_2.length;
+		for (let j = 0; j < lwl_2; j++) {
+			word3 = word_list_2[j];
+			key3 = word1[3] + word2[3] + word3[3];
+			word_list_3 = words.filter(word => word.substring(0,3) == key3);
+			lwl_3 = word_list_3.length;
+			for (let k = 0; k < lwl_3; k++) {
+				word4 = word_list_3[k];
+				key4 = word1[4] + word2[4] + word3[4] + word4[4];
+				word_list_4 = words.filter(word => word.substring(0,4) == key4);
+				lwl_4 = word_list_4.length;
+				for (let m = 0; m < lwl_4; m++) {
+					word5 = word_list_4[m];
+					sqordles[n] = word1 + word2.substring(1,5) + word3.substring(2,5) + word4.substring(3,5) + word5.substring(4,5);
+					n++;
+				}
+			}
+		}
+	}
+	let a=sqordles[Math.floor(Math.random()*n)];let ans=a.split("");let sqordle=[''];
+	sqordle[0]=ans[0];sqordle[6]=ans[6];sqordle[11]= ans[11];
+	sqordle[1]=ans[5];sqordle[5]=ans[1];sqordle[2]=ans[9];sqordle[9]=ans[2];
+	sqordle[3]=ans[12];sqordle[12]=ans[3];sqordle[4]=ans[14];sqordle[14]=ans[4];
+	sqordle[7]=ans[10];sqordle[10]=ans[7];sqordle[8]=ans[13];sqordle[13]=ans[8];
+	if (n>0) {return sqordle} else {return "-"}
+}
+//  0  5  9 12 14
+// 15  1  6 10 13 
+// 19 16  2  7 11
+// 22 20 17  3  8
+// 24 23 21 18  4
+
+function redraw() {
+	for (let i=0;i<15;i++) {
+		let tmp = "b" + i.toString();
+		document.getElementById(tmp).value = box[i];
+		document.getElementById(tmp).style.backgroundColor = bgc[i];
+		if (i>4) {let tmp = "b" + (i+10).toString();
+			document.getElementById(tmp).value = box[i];document.getElementById(tmp).style.backgroundColor = bgc[i];}}
+}
+
+function new_game() {
+	done = false;N = 0;
+	for (let i=0;i<25;i++) {let tmp="b"+i.toString();document.getElementById(tmp).disabled = false;}
+	for (let i=0;i<15;i++){bgc[i]='white';}
+	do {let r = Math.floor(Math.random()*words.length);sqordle = getSqordle(words[r]);}while (sqordle=='-');
+	//let wordle = 'ample';quasi;words;wordy
+	//sqordle = getSqordle('words');
+	ans = sqordle;
+	word_ans[0] = ans[0]+ans[5]+ans[9]+ans[12]+ans[14];
+	word_ans[1] = ans[5]+ans[1]+ans[6]+ans[10]+ans[13];
+	word_ans[2] = ans[9]+ans[6]+ans[2]+ans[7]+ans[11];
+	word_ans[3] = ans[12]+ans[10]+ans[7]+ans[3]+ans[8];
+	word_ans[4] = ans[14]+ans[13]+ans[11]+ans[8]+ans[4];
+	for (let i=0;i<15;i++){box[i]=ans[i];};
+	switch (level) {
+		case 1: //easy - scramble 1 2 3 6 7 10
+			var m=[1,2,3,6,7,10], n=[1,2,3,6,7,10];
+			for (let i=5;i>0;i--) {let j=Math.floor(Math.random()*(i+1));let tmp=n[i];n[i]=n[j];n[j]=tmp;}
+			for	(let i=0;i<6;i++) {let tmp=box[m[i]];box[m[i]]=box[n[i]];box[n[i]]=tmp;}
+		break;
+		case 2: //hard - scramble 1 2 3 4 6 7 8 10 11 13
+			var m=[1,2,3,4,6,7,8,10,11,13], n=[1,2,3,4,6,7,8,10,11,13];
+			for (let i=9;i>0;i--) {let j=Math.floor(Math.random()*(i+1));let tmp=n[i];n[i]=n[j];n[j]=tmp;}
+			for	(let i=0;i<10;i++) {let tmp=box[m[i]];box[m[i]]=box[n[i]];box[n[i]]=tmp;}
+		break;
+		default: //case 3:  //killer - scramble all
+			var m=[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14], n=[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14];
+			for (let i=14;i>0;i--) {let j=Math.floor(Math.random()*(i+1));let tmp=n[i];n[i]=n[j];n[j]=tmp;}
+			for	(let i=0;i<15;i++) {let tmp=box[m[i]];box[m[i]]=box[n[i]];box[n[i]]=tmp;};
+		//break;
+	}
+	for (let i=0;i<15;i++) {
+			if (box[i]==ans[i]) {
+				if (!m.includes(i)) {bgc[i]=ckclr;let tmp="b"+i.toString();document.getElementById(tmp).disabled = true;
+					if (i>4) {let tmp="b"+(i+10).toString();document.getElementById(tmp).disabled = true;}}}}
+	redraw();N = 0;box_ck = -1;document.getElementById('stroke').innerHTML = '-';
+}
+
+function func_check() {
+	if (!done) {let n=0;
+		for (let i=0;i<15;i++){bgc[i]='white';}
+		let clr='lavenderblush';
+		let word = box[0]+box[5]+box[9]+box[12]+box[14];
+		if (word_ans.includes(word)) {bgc[0]=clr;bgc[5]=clr;bgc[9]=clr;bgc[12]=clr;bgc[14]=clr;}
+		word = box[5]+box[1]+box[6]+box[10]+box[13];
+		if (word_ans.includes(word)) {bgc[5]=clr;bgc[1]=clr;bgc[6]=clr;bgc[10]=clr;bgc[13]=clr;}
+		word = box[9]+box[6]+box[2]+box[7]+box[11];
+		if (word_ans.includes(word)) {bgc[9]=clr;bgc[6]=clr;bgc[2]=clr;bgc[7]=clr;bgc[11]=clr;}
+		word = box[12]+box[10]+box[7]+box[3]+box[8];
+		if (word_ans.includes(word)) {bgc[12]=clr;bgc[10]=clr;bgc[7]=clr;bgc[3]=clr;bgc[8]=clr;}
+		word = box[14]+box[13]+box[11]+box[8]+box[4];
+		if (word_ans.includes(word)) {bgc[14]=clr;bgc[13]=clr;bgc[11]=clr;bgc[8]=clr;bgc[4]=clr;}
+		N++;let tmp='';
+		for (let i=0;i<N;i++) {tmp=tmp+'X';}	
+		for (let i=0;i<15;i++) {
+			if (box[i]==ans[i]) {
+				n++; //if n gets to 15 then all are correct
+				bgc[i]=ckclr;
+				let tmp = "b" + i.toString();document.getElementById(tmp).disabled = true;
+				if (i>4) {let tmp = "b" + (i+10).toString();document.getElementById(tmp).disabled = true;}}}
+		if (n==15) {tmp = 'Score = ' + N.toString();done = true;}
+		redraw();document.getElementById('stroke').innerHTML = tmp;
+	}
+}
+
+
+function instruction() {
+	const x = document.getElementById('block');
+	if (inst_ck) {inst_ck = false;
+		x.outerHTML = "<div id=\"block\"></div>";}
+	else {inst_ck = true;
+		x.outerHTML = "<div id=\"block\"><table><tr><td align=\"center\">Arrange the letters to form the<br>same 5 words across and down.<br><br>Select a letter box," +
+			"then select a<br>second box to swap the letters.<br><br>Cross-boxes (same value) are<br>automatically selected.<br><br>" +
+			"Use 'Check' to show correct boxes.<br>Pink is a right word in the wrong place.</td></tr></table></div>";
+	}
+}
+
+function settings() {
+	const x = document.getElementById('block');
+	if (settings_ck) {settings_ck = false;
+		x.outerHTML = "<div id=\"block\"></div>";}
+	else {settings_ck = true;
+		x.outerHTML = 
+			"<div id=\"block\"><table><tr>" +
+			"<td align=\"left\"><fieldset onclick=\"func_level()\"><legend>Difficulty:</legend><input type=\"radio\" class=\"btn\" name=\"level\" value=\"easy\">Easy<br>" +
+			"<input type=\"radio\"  class=\"btn\"name=\"level\" value=\"hard\" checked>Hard<br><input type=\"radio\"  class=\"btn\"name=\"level\" value=\"killer\">Killer<br></fieldset></td>" +
+			"<td align=\"left\"><fieldset onclick=\"func_mode()\"><legend>Mode:</legend><input type=\"radio\"  class=\"btn\"name=\"mode\" value=\"rndm\" checked>Random Word<br>" +
+			"<input type=\"radio\"  class=\"btn\"name=\"mode\" value=\"ywrd\">Your Word<br><input type=\"radio\"  class=\"btn\"name=\"mode\" value=\"wwrd\">Daily Wordle<br></fieldset></td></tr>" +
+		    "<tr><td colspan=2 align=\"center\">Using list of " + words.length.toString() + " words</td></tr></table></div>";
+	}
+}
+
+function func_level() {
+    var radioButtons = document.getElementsByName("level");
+    for(let i=0;i<radioButtons.length;i++) {if(radioButtons[i].checked==true) {level = i+1;}}
+}
+
+function func_mode() {
+    var radioButtons = document.getElementsByName("mode");
+    for(let i=0;i<radioButtons.length;i++) {if(radioButtons[i].checked==true) {mode = i+1;}}
+}
+
+const ckclr = '#d3f8d3';
+var N = 0;
+var box_ck = -1;
+var inst_ck = false;
+var settings_ck = false;
+var done = false;
+var mode = 1;
+var level = 2;
+var sqordle = "";
+var word_ans = [''];
+var ans = [''];
+var box = [''];
+var bgc = ['white','white','white','white','white','white','white','white','white','white','white','white','white','white','white'];
+//  0  5  9 12 14
+// 15  1  6 10 13 
+// 19 16  2  7 11
+// 22 20 17  3  8
+// 24 23 21 18  4
+
+
+</script>
+
+<style>
+	div {text-align: center;}
+	fieldset {text-align: left;color: blue;border: none;}
+	h1 {color: blue;font-size: 40px;font-family: Verdana, Geneva, Tahoma, sans-serif;}
+	h2 {color: blue;font-size: 20px;font-family: Verdana, Geneva, Tahoma, sans-serif;}
+	h3 {color: red;font-size: 12px;font-family: Verdana, Geneva, Tahoma, sans-serif;}
+	table {margin-left: auto;margin-right: auto;border: solid;width:320px} 
+	td {border: none;}
+	#b0,#b1,#b2,#b3,#b4,#b5,#b6,#b7,#b8,#b9,#b10,#b11,#b12,#b13,#b14,#b15,#b16,#b17,#b18,#b19,#b20,#b21,#b22,#b23,#b24
+		{width:50px;height:50px;margin:1px;border:1px solid gray;border-radius: 10px;font-size: 24px;text-align: center;background-color: white;}
+	#level {width:150px;height:30px;cursor:pointer;font-size: 18px;font-family: Verdana, Geneva, Tahoma, sans-serif;}
+	#stroke {font-family: Verdana, Geneva, Tahoma, sans-serif;color: blue;font-size: 24px;}
+	#block {font-family: Verdana, Geneva, Tahoma, sans-serif;color: blue;font-size: 14px;}
+	.btn {background-color: DodgerBlue;border: none;color: white;padding: 12px 16px;font-size: 20px;cursor: pointer;}
+	.btn:hover {background-color: RoyalBlue;} /* Darker background on mouse-over */
+	.rbtn {cursor: pointer;}
+	.disabledInput {color: black;opacity: 1}
+</style>
+
+</head>
+<body>
+	<div id="main">
+		<h1>Sqordle</h1>
+		<h2>Wordle Squared</h2>
+		<button class="btn" onclick="instruction()"><i class="fa fa-info-circle"></i></button>
+		<button class="btn" onclick="new_game()"><i class="fa fa-clone"></i> New</button>
+		<button class="btn" onclick="func_check()"><i class="fa fa-check-square-o"></i> Check</button>
+		<button class="btn" onclick="settings()"><i class="fa fa-gear"></i></button>
+		<br>
+		<div id="block"></div>
+		<p id="stroke">-</p>
+		<input type="text" id="b0" value="-" class="disabledInput" onclick="func_b0();" readonly>
+		<input type="text" id="b5" value="-" class="disabledInput" onclick="func_b5();" readonly>
+		<input type="text" id="b9" value="-" class="disabledInput" onclick="func_b9();" readonly>
+		<input type="text" id="b12" value="-" class="disabledInput" onclick="func_b12();" readonly>
+		<input type="text" id="b14" value="-" class="disabledInput" onclick="func_b14();" readonly>
+		<br>
+		<input type="text" id="b15" value="-" class="disabledInput" onclick="func_b5();" readonly>
+		<input type="text"  id="b1" value="-" class="disabledInput" onclick="func_b1();" readonly>
+		<input type="text"  id="b6" value="-" class="disabledInput" onclick="func_b6();" readonly>
+		<input type="text"  id="b10" value="-" class="disabledInput" onclick="func_b10();" readonly>
+		<input type="text"  id="b13" value="-" class="disabledInput" onclick="func_b13();" readonly>
+		<br>
+		<input type="text"  id="b19" value="-" class="disabledInput" onclick="func_b9();" readonly>
+		<input type="text"  id="b16" value="-" class="disabledInput" onclick="func_b6();" readonly>
+		<input type="text"   id="b2" value="-" class="disabledInput" onclick="func_b2();" readonly>
+		<input type="text" id="b7" value="-" class="disabledInput" onclick="func_b7();" readonly>
+		<input type="text" id="b11" value="-" class="disabledInput" onclick="func_b11();" readonly>
+		<br>
+		<input type="text"  id="b22" value="-" class="disabledInput" onclick="func_b12();" readonly>
+		<input type="text"  id="b20" value="-" class="disabledInput" onclick="func_b10();" readonly>
+		<input type="text" id="b17" value="-" class="disabledInput" onclick="func_b7();" readonly>
+		<input type="text" id="b3" value="-" class="disabledInput" onclick="func_b3();" readonly>
+		<input type="text" id="b8" value="-" class="disabledInput" onclick="func_b8();" readonly>
+		<br>
+		<input type="text"  id="b24" value="-" class="disabledInput" onclick="func_b14();" readonly>
+		<input type="text"  id="b23" value="-" class="disabledInput" onclick="func_b13();" readonly>
+		<input type="text" id="b21" value="-" class="disabledInput" onclick="func_b11();" readonly>
+		<input type="text" id="b18" value="-" class="disabledInput" onclick="func_b8();" readonly>
+		<input type="text" id="b4" value="-" class="disabledInput" onclick="func_b4();" readonly>
+
+	</div>
+</body>
+
+
